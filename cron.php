@@ -1,7 +1,7 @@
 <?php
 
-$appRoot 	= APP_ROOT;
-$cmd 		= "curl $appRoot/api/check/action";
+$appRoot 	= "https://flip-disburse-api.herokuapp.com";
+$cmd 		= "curl $appRoot/check/action";
 $sleep 		= 30;
  
 while (true) {

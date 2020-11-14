@@ -76,7 +76,7 @@ $query_builder = TRUE;
 // FOR HEROKU APP
 $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-if (strpos($actual_link, 'localhost') == false) {
+if (strpos($actual_link, 'localhost') == false || strpos($actual_link, 'heroku')) {
 	$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 	$db_server   = $cleardb_url["host"];
 	$db_username = $cleardb_url["user"];
