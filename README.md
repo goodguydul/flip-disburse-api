@@ -22,7 +22,7 @@ There are 2 ways to deploy this project, you can choose one of them.
 4. Don't forget to add ClearDB and Heroku Scheduler add-ons to your heroku project. Add credit card to your Heroku Billing so your account will be verified and you'll be able to use those addons.
 5. Heroku scheduler is used as "cron-job" for disburse data update checker. And ClearDB as database.
 
-## [CONFIG]
+## CONFIG
 #### GENERAL CONFIG
 The general config is in `application/config/config.php`
 
