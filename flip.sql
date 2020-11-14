@@ -212,13 +212,13 @@ CREATE TABLE `trx` (
   `id` bigint(20) NOT NULL,
   `amount` bigint(20) NOT NULL,
   `status` varchar(20) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `timestamp` datetime NOT NULL DEFAULT,
   `bank_code` varchar(10) NOT NULL,
   `account_number` bigint(20) NOT NULL,
   `beneficiary_name` varchar(70) NOT NULL,
   `remark` varchar(100) NOT NULL,
   `receipt` text,
-  `time_served` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `time_served` datetime NOT NULL DEFAULT,
   `fee` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
