@@ -65,7 +65,7 @@ Credentials:
  `username: admin`
  `password: 1234`
 
-> you can change the credentials refer to [here](#config)
+> you can change the credentials refer to [here](#rest-config)
 
  
 
