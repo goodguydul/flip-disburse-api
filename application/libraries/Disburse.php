@@ -37,8 +37,12 @@ class Disburse extends CI_Controller{
     return $result;
   }
 
-  public function CheckIsDataUpdated($id){
+  public function CheckIfDataIsUpdated($id){
 
+    $response = $this->client->request('GET', 'disburse/'.$id);
+    $result   = json_decode($response->getBody()->getContents(), true);
+
+    return $result;
   }
 }
 

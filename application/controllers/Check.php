@@ -2,25 +2,28 @@
 
 class Check extends CI_Controller{
 
-  public function __construct(){
+  //action to check all data status in database when triggered 
+  public function action(){
 
-    parent::__construct();
+    $this->load->library('disburse');
+    $this->load->model('DisburseModel');
+    $trx_data = $this->DisburseModel->get_all_data();
 
-    $this->load->model('ApiModel');
-  }
+    if (isset($trx_data['data'])){
 
-  //CREATE
-  public function updatedData(){
+      $trx_data = $trx_data['data'];
 
-    $response = $this->ApiModel->add_data(
-      $this->post('bank_code'),
-      $this->post('account_number'),
-      $this->post('amount'),
-      $this->post('remark')
-    );
+      foreach ($trx_data as $trx) {
 
-    $this->response($response);
+        $disburse_data = $this->disburse->CheckIfDataIsUpdated($trx->id);
+
+        if ($disburse_data['status'] === "SUCCESS") {
+          $this->DisburseModel->update_data($trx->id, $disburse_data['status'], $disburse_data['receipt'], $disburse_data['time_served']); 
+          echo $trx->id . " is updated<br>";
+        } 
+        sleep(0.05);
+      }
+    }
   }
 }
-
 ?>

@@ -1,6 +1,5 @@
 <?php
 
-// extends class Model
 class DisburseModel extends CI_Model{
 
   //BLANK FIELD REQUEST
@@ -11,9 +10,29 @@ class DisburseModel extends CI_Model{
     return $response;
   }
 
+  //READ ALL DATA
+  public function get_all_data(){
+
+    $result               = $this->db->get_where("trx", array('status' => "PENDING"));
+
+    if ($result->num_rows() > 0){
+      $response['status'] = 200;
+      $response['error']  = false;
+      $response['data']   = $result->result();
+
+    }else{
+      $response['status'] = 404;
+      $response['error']  = true;
+      $response['message']= "Data not found";
+    }
+
+    return $response;
+  }
+
+  //READ / GET DATA OF PENDING STATUS
   public function get_data($var){
 
-    $result               = $this->db->get_where("trx", array('id' => $var));
+    $result               = $this->db->get_where("trx", array('id' => $var, 'status' => "PENDING"));
 
     if ($result->num_rows() > 0){
       $response['status'] = 200;
@@ -37,6 +56,7 @@ class DisburseModel extends CI_Model{
       return $this->empty_response();
 
     }else{
+
       $where = array(
         "id" => $id
       );
@@ -48,7 +68,6 @@ class DisburseModel extends CI_Model{
       );
 
       $this->db->where($where);
-
       $update = $this->db->update("trx", $set);
 
       if($update){
@@ -69,39 +88,6 @@ class DisburseModel extends CI_Model{
       }
     }
   }
-
-  //DELETE DATA
-  public function delete_data($id){
-
-    if($id == ''){
-      return $this->empty_response();
-    }else{
-      $where = array(
-        "id"=>$id
-      );
-
-      $this->db->where($where);
-      $delete = $this->db->delete("trx");
-
-      if($delete){
-        $response['status']   = 200;
-        $response['error']    = false;
-        $response['message']  = 'Data deleted successfully';
-
-        return $response;
-
-      }else{
-        $response['status']   = 409;
-        $response['error']    = true;
-        $response['message']  ='Failed to delete data';
-
-        return $response;
-
-      }
-    }
-
-  }
-
 }
 
 ?>

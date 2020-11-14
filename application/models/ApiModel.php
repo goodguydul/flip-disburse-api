@@ -1,6 +1,5 @@
 <?php
 
-// extends class Model
 class ApiModel extends CI_Model{
 
   //BLANK FIELD REQUEST
@@ -55,12 +54,10 @@ class ApiModel extends CI_Model{
     return $response;
   }
 
+  //READ BY ID
   public function select_data($var){
 
     $result               = $this->db->get_where("trx", array('id' => $var));
-    print_r($var);
-    print_r($result->num_rows());
-    die();
 
     if ($result->num_rows() > 0){
       $response['status'] = 200;
@@ -77,9 +74,11 @@ class ApiModel extends CI_Model{
   }
 
   // UPDATE
-  public function update_data($id, $status, $receipt, $time_served){
+  public function update_data($id, $data){
 
-    if(empty($id) || empty($status) || empty($receipt) || empty($time_served)){
+    //assumed $data is an array of data that want to update.
+
+    if(empty($id) || empty($data)){
 
       return $this->empty_response();
 
@@ -88,15 +87,9 @@ class ApiModel extends CI_Model{
         "id" => $id
       );
 
-      $set = array(
-        "status"      => $status,
-        "receipt"     => $receipt,
-        "time_served" => $time_served
-      );
-
       $this->db->where($where);
 
-      $update = $this->db->update("trx", $set);
+      $update = $this->db->update("trx", $data);
 
       if($update){
 
@@ -122,6 +115,7 @@ class ApiModel extends CI_Model{
 
     if($id == ''){
       return $this->empty_response();
+
     }else{
       $where = array(
         "id"=>$id
@@ -146,9 +140,6 @@ class ApiModel extends CI_Model{
 
       }
     }
-
   }
-
 }
-
 ?>
