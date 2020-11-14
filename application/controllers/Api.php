@@ -33,15 +33,8 @@ class Api extends REST_Controller{
       $this->response($response);
 
     }else{
-
-      $id = (int)$id;
-
-      if ($id <= 0) {
-        $this->response(NULL, REST_Controller::HTTP_BAD_REQUEST);
-      }else{
-        $response = $this->ApiModel->select_data($id);
-        $this->response($response);
-      }
+      $response = $this->ApiModel->select_data($id);
+      $this->response($response);
     }
   }
 

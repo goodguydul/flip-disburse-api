@@ -1,7 +1,7 @@
 <?php
 
 // extends class Model
-class ApiModel extends CI_Model{
+class DisburseModel extends CI_Model{
 
   //BLANK FIELD REQUEST
   public function empty_response(){
@@ -11,56 +11,9 @@ class ApiModel extends CI_Model{
     return $response;
   }
 
-  //CREATE
-  public function add_data($bank_code, $account_number, $amount, $remark){
-
-    if(empty($bank_code) || empty($account_number) || empty($amount) || empty($remark)){
-
-      return $this->empty_response();
-
-    }else{
-
-      // DISBURSE 
-      $this->load->library('disburse');
-      $disburse_response   = $this->disburse->SendDisburse($bank_code, $account_number, $amount, $remark);
-
-      //STORE TO DATABASE
-      $insert = $this->db->insert("trx", $disburse_response);
-
-      if($insert){
-        $response['status']   = 200;
-        $response['error']    = false;
-        $response['message']  = 'Data added successfully';
-
-        return $response;
-
-      }else{
-        $response['status']   = 409;
-        $response['error']    = true;
-        $response['message']  ='Failed to insert new data';
-
-        return $response;
-      }
-    }
-  }
-
-  //READ ALL
-  public function all_data(){
-
-    $result               = $this->db->get("trx")->result();
-    $response['status']   = 200;
-    $response['error']    = false;
-    $response['data']     = $result;
-
-    return $response;
-  }
-
-  public function select_data($var){
+  public function get_data($var){
 
     $result               = $this->db->get_where("trx", array('id' => $var));
-    print_r($var);
-    print_r($result->num_rows());
-    die();
 
     if ($result->num_rows() > 0){
       $response['status'] = 200;
