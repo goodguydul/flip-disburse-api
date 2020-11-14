@@ -13,7 +13,7 @@ There are 2 ways to deploy this project, you can choose one of them.
 2. Import .sql file which provided in the source code to your database.
 3. If your server have cron, set this command to the cron job :
 	`curl <your-base-url>/check/action`. 
-	This is used to check updated data from API endpoint (Slightly-big).
+	This is used to trigger method to check updated data from API endpoint (Slightly-big).
 
 #### B. Herokuapp
 1. Clone this git `https://github.com/goodguydul/flip-disburse-api.git` to your Github.
@@ -85,13 +85,13 @@ For update checker, url is https://flip-disburse-api.herokuapp.com/check/action
 | id | bigint |
 | amount | int | 
 | status | varchar | 
-| timestamp | timestamp | 
+| timestamp | datetime | 
 | bank_code | varchar | 
 | account_number | bigint | 
 | beneficiary_name | varchar | 
 | remark | varchar | 
 | receipt | text | 
-| time_served | timestamp | 
+| time_served | datetime | 
 | fee | int |
 
 ---
