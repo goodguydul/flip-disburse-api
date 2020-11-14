@@ -85,13 +85,13 @@ For update checker, url is https://flip-disburse-api.herokuapp.com/check/action
 | id | bigint |
 | amount | int | 
 | status | varchar | 
-| timestamp | timestamp | 
+| timestamp | datetime | 
 | bank_code | varchar | 
 | account_number | bigint | 
 | beneficiary_name | varchar | 
 | remark | varchar | 
 | receipt | text | 
-| time_served | timestamp | 
+| time_served | datetime | 
 | fee | int |
 
 ---
