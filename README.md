@@ -42,7 +42,7 @@ if (strpos($actual_link, 'localhost') == false || strpos($actual_link, 'heroku')
 	$db_server   = 'localhost';
 	$db_username = 'root';
 	$db_password = '';
-	$db_name  	 = 'flip';
+	$db_name     = 'flip';
 }
 ```
 > *Change `$db_server,$db_username, $db_password, $db_name` if you use localhost / server. If you use heroku, just skip it.*
