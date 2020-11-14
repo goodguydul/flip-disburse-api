@@ -73,12 +73,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
+// FOR HEROKU APP
+
+
+$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+if (strpos($actual_link, 'localhost') == false) {
+	$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+	$db_server   = $cleardb_url["host"];
+	$db_username = $cleardb_url["user"];
+	$db_password = $cleardb_url["pass"];
+	$db       	 = substr($cleardb_url["path"],1);
+} else {
+	
+	$db_server   = 'localhost';
+	$db_username = 'root';
+	$db_password = '';
+	$db       	 = 'flip';
+}
+
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'flip',
+	'hostname' => $db_server,
+	'username' => $db_username,
+	'password' => $db_password,
+	'database' => $db,
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
