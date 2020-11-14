@@ -81,13 +81,13 @@ if (strpos($actual_link, 'localhost') == false) {
 	$db_server   = $cleardb_url["host"];
 	$db_username = $cleardb_url["user"];
 	$db_password = $cleardb_url["pass"];
-	$db       	 = substr($cleardb_url["path"],1);
+	$db_name  	 = substr($cleardb_url["path"],1);
 } else {
 	
 	$db_server   = 'localhost';
 	$db_username = 'root';
 	$db_password = '';
-	$db       	 = 'flip';
+	$db_name  	 = 'flip';
 }
 
 $db['default'] = array(
@@ -95,7 +95,7 @@ $db['default'] = array(
 	'hostname' => $db_server,
 	'username' => $db_username,
 	'password' => $db_password,
-	'database' => $db,
+	'database' => $db_name,
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
