@@ -72,8 +72,10 @@ Credentials:
 ## API REQUEST
  
  Base url for all request is: https://flip-disburse-api.herokuapp.com/api
+ For update checker, url is https://flip-disburse-api.herokuapp.com/check/action
  
  ---
+ 
 #### Available Variables
 
 | variable | data type |
