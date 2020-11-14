@@ -3,6 +3,9 @@
 class Check extends CI_Controller{
 
   //action to check all data status in database when triggered 
+  //this controller need to be set on a CronJob, so the checker can check and update the data automaticly.
+
+
   public function action(){
 
     $this->load->library('disburse');

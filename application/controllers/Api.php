@@ -40,20 +40,18 @@ class Api extends REST_Controller{
 
   //UPDATE
   public function update_put(){
-    $response = $this->ApiModel->update_data(
-      $this->put('id'),
-      $this->put('status'),
-      $this->put('receipt'),
-      $this->put('time_served')
-    );
+    $id   = $this->put('id');
+    $data = $this->put();
+
+    $response = $this->ApiModel->update_data($id, $data);
     $this->response($response);
   }
 
   //DELETE
   public function delete_delete(){
     $response = $this->ApiModel->delete_data(
-        $this->delete('id')
-      );
+      $this->delete('id')
+    );
     $this->response($response);
   }
 }
