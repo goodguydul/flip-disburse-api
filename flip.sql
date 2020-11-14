@@ -21,8 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `flip`
 --
-CREATE DATABASE IF NOT EXISTS `flip` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `flip`;
+--CREATE DATABASE IF NOT EXISTS `flip` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+--USE `flip`;
 
 -- --------------------------------------------------------
 

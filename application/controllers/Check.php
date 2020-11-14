@@ -24,7 +24,7 @@ class Check extends CI_Controller{
           $this->DisburseModel->update_data($trx->id, $disburse_data['status'], $disburse_data['receipt'], $disburse_data['time_served']); 
           echo $trx->id . " is updated<br>";
         } 
-        sleep(0.05);
+        // sleep(0.05);
       }
     }
   }
