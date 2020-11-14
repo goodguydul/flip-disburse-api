@@ -19,7 +19,8 @@ There are 2 ways to deploy this project, you can choose one of them.
 1. Clone this git `https://github.com/goodguydul/flip-disburse-api.git` to your Github.
 2. Connect your Heroku account with your Github account, and then set automatic deployment in your Heroku account. You can follow this tutorial here : [Tutorial Github + Heroku](https://devcenter.heroku.com/articles/github-integration)
 3. For importing the database, you can follow this tutorial : [Here](https://medium.com/@michaeltendossemwanga/import-mysql-database-to-heroku-with-one-command-import-db-sql-a932d720c82b)
-4. Don't forget to add ClearDB add-ons to your heroku project.
+4. Don't forget to add ClearDB and Heroku Scheduler add-ons to your heroku project. Add credit card to your Heroku Billing so your account will be verified and you'll be able to use those addons.
+5. Heroku scheduler is used as "cron-job" for disburse data update checker. And ClearDB as database.
 
 ## [CONFIG]
 #### GENERAL CONFIG
