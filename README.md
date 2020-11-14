@@ -130,7 +130,7 @@ Credentials:
   ```
   ![enter image description here](https://i.ibb.co/tYW5qBz/Screenshot-4.png)
  ---
-## RESOUCES
+## RESOURCES
 
 There are several resources used in this API. Thanks to the dev.
 
