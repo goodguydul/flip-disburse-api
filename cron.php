@@ -1,9 +1,7 @@
 <?php
 
 $appRoot 	= APP_ROOT;
-$cmd 		= "php $appRoot/api/check/action schedule:run";
-$outputPath = '/dev/null';
-$cmd 		= "$cmd &gt; $outputPath &amp;";
+$cmd 		= "php $appRoot/api/check/action";
 $sleep 		= 60;
  
 while (true) {
