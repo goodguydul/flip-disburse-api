@@ -21,7 +21,7 @@ There are 2 ways to deploy this project, you can choose one of them.
 3. For importing the database, you can follow this tutorial : [Here](https://medium.com/@michaeltendossemwanga/import-mysql-database-to-heroku-with-one-command-import-db-sql-a932d720c82b)
 4. Don't forget to add ClearDB add-ons to your heroku project.
 
-## [CONFIG](#config)
+## [CONFIG]
 #### GENERAL CONFIG
 The general config is in `application/config/config.php`
 
