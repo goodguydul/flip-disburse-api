@@ -73,10 +73,8 @@ Credentials:
 ## API REQUEST
 
 Base url for all request is: https://flip-disburse-api.herokuapp.com/api
-
-For update checker, url is https://flip-disburse-api.herokuapp.com/check/action
  
- ---
+---
  
 #### Available Variables
 
@@ -95,6 +93,7 @@ For update checker, url is https://flip-disburse-api.herokuapp.com/check/action
 | fee | int |
 
 ---
+
 ### REQUEST
 
 #### [CREATE] Add a new disburse data
@@ -104,7 +103,7 @@ For update checker, url is https://flip-disburse-api.herokuapp.com/check/action
   EXAMPLE:
  ```
  ![Add a new disburse data](https://i.ibb.co/6F9zFyc/Screenshot-2.png)
- ---
+---
 #### [READ] Get all data / get data by id transaction
   ```
   METHOD : GET
@@ -113,7 +112,7 @@ For update checker, url is https://flip-disburse-api.herokuapp.com/check/action
   EXAMPLE:
   ```
   ![REQUEST ALL DATA](https://i.ibb.co/7vDJrn0/Screenshot-1.png)
-  ---
+---
 #### [UPDATE] Update a Data Disburse
  
 > *Note: this is `update` only for this API, on update checker we use different method*.
@@ -124,7 +123,7 @@ For update checker, url is https://flip-disburse-api.herokuapp.com/check/action
   EXAMPLE:
   ```
   ![Update Data Disburse](https://i.ibb.co/ZLq7Mv3/Screenshot-3.png)
- ---
+---
 #### [DELETE] Delete a Disburse Data 
  
   ```
@@ -133,7 +132,26 @@ For update checker, url is https://flip-disburse-api.herokuapp.com/check/action
   EXAMPLE:
   ```
   ![enter image description here](https://i.ibb.co/tYW5qBz/Screenshot-4.png)
- ---
+---
+ 
+### AUTO UPDATE CHECKER
+
+For update checker, url is https://flip-disburse-api.herokuapp.com/check/action
+This auto update checker is triggered every 30s. This setting can be changed on file `cron.php`:
+
+	$appRoot 	= "https://flip-disburse-api.herokuapp.com";
+	$cmd 		= "curl $appRoot/check/action";
+	$sleep 		= 30; // IN SECOND. CHANGE THIS VALUE TO CHANGE THE TIME INTERVAL
+
+	while (true) {
+	    exec($cmd);
+	    sleep($sleep);
+	}
+
+This cron.php is executed in ProcFile when the app is deployed / re-deployed.
+
+---
+
 ## RESOURCES
 
 There are several resources used in this API. Thanks to the dev.
