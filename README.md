@@ -46,7 +46,7 @@ if (strpos($actual_link, 'localhost') == false || strpos($actual_link, 'heroku')
 	$db_name     = 'flip';
 }
 ```
-> *Change `$db_server,$db_username, $db_password, $db_name` if you use localhost / server. If you use heroku, just skip it.*
+> *Change `$db_server,$db_username, $db_password, $db_name` value if you use localhost / server. If you use heroku, just skip it.*
 
 #### REST CONFIG
 The rest api config is in `application/config/rest.php`
@@ -56,7 +56,7 @@ $config['rest_auth'] 		= 'basic';
 $config['rest_valid_logins'] 	= ['admin' => '1234'];
 ```
 
-> Just change`rest_auth` and `rest_valid_logins` if you want to change the credentials for login API.
+> change`rest_auth` and `rest_valid_logins` value if you want to change the credentials for login API.
 
 ## AUTHENTICATION
 
