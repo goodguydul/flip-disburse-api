@@ -60,7 +60,7 @@ $config['rest_valid_logins'] 	= ['admin' => '1234'];
 
 ## AUTHENTICATION
 
-This API uses basic authentication, so on every request, you must enter a username and password.
+This API used basic authentication, so on every request, you must enter a username and password.
 
 Credentials:
  `username: admin`
@@ -68,13 +68,12 @@ Credentials:
 
 > you can change the credentials refer to [here](#rest-config)
 
- 
+---
 
 ## API REQUEST
 
 Base url for all request is: https://flip-disburse-api.herokuapp.com/api
  
----
  
 #### Available Variables
 
