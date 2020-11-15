@@ -13,7 +13,7 @@ There are 2 ways to deploy this project, you can choose one of them.
 2. Import .sql file which provided in the source code to your database.
 3. If your server have cron, set this command to the cron job :
 	`curl <your-base-url>/check/action`. 
-	You can set time interval every 30s, 1 minute, etc. This is used to trigger method to check updated data from API endpoint (Slightly-big).
+	You can set time interval to trigger `cron.php` every 30s, 1 minute, etc. This is used to trigger method to check updated data from API endpoint (Slightly-big).
 
 #### B. Herokuapp
 1. Clone this git `https://github.com/goodguydul/flip-disburse-api.git` to your Github.
