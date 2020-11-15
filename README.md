@@ -136,6 +136,7 @@ Base url for all request is: https://flip-disburse-api.herokuapp.com/api
 ### AUTO UPDATE CHECKER
 
 For update checker, url is https://flip-disburse-api.herokuapp.com/check/action
+
 This auto update checker is triggered every 30s. This setting can be changed on file `cron.php`:
 
 	$appRoot 	= "https://flip-disburse-api.herokuapp.com";
